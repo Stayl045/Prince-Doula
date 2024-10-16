@@ -1,0 +1,10 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <section class="page-content">
+        <h1>{{ post.title }}</h1>  {# Displays the title of the page #}
+        <div class="page-body">
+            {{ post.content }}  {# Displays the content of the page #}
+        </div>
+    </section>
+{% endblock %}

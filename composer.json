@@ -1,0 +1,11 @@
+{
+    "name": "stephantaylor/prince-doula-theme",
+    "autoload": {
+        "psr-4": {
+            "Stephantaylor\\PrinceDoulaTheme\\": "src/"
+        }
+    },
+    "require": {
+        "timber/timber": "^2.2"
+    }
+}

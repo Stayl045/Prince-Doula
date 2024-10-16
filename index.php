@@ -1,34 +1,47 @@
 <?php
+// Include the WordPress environment
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
 
-get_header(); ?>
+// Load Timber and get the global context
+$context = Timber::get_context();
 
-<div class="max-w-4xl mx-auto px-4">
+// Fetch the menu and pass it to the context
+$context['menu'] = new Timber\Menu('headerMenuLocation');
 
-  <!-- example react component -->
-  <div id="render-react-example-here"></div>
-  <!-- end example react component -->
 
-  <div class="prose max-w-full">
-    <?php if (have_posts()) {
-      while(have_posts()) {
-        the_post(); ?>
-        <div>
-          <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-          <?php the_content(); ?>
-        </div>
-        <div class="grid grid-flow-col">
-          <h2>hi</h2>
-          <div class="grid grid-flow-row justify-between">
-            <div>HELP</div>
-            <div>ME</div>
-          </div>
-          <div>hel</div>
-          <div>Nope</div>
-          <div>Nope</div>
-        </div>
-      <?php }
-    } ?>
-  </div>
-</div>
 
-<?php get_footer();
+
+
+if (is_front_page()) {
+  // Load homepage-specific template
+  $templates = array('views/front.twig');
+  // Fetch the homepage content
+  $context['post'] = new Timber\Post();
+} elseif (is_page('about')) {
+  // Load the about page template if the slug is 'about'
+  $templates = array('views/about.twig');
+  // Fetch the about page content
+  $context['post'] = new Timber\Post();
+} elseif (is_page('gallery')) {
+  // Load the gallery page template if the slug is 'gallery'
+  $templates = array('views/gallery.twig');
+  // Fetch the gallery page content
+  $context['post'] = new Timber\Post();
+} else {
+  // For other pages, use the generic page template
+  $templates = array('views/page.twig');
+  // Fetch the current post/page content
+  $context['post'] = new Timber\Post();
+}
+
+
+// Fetch posts using Timber\PostQuery and pass them to the context
+// $context['posts'] = new Timber\PostQuery(array(
+//     'post_type' => 'post',    
+//     'posts_per_page' => 10,   
+// ));
+
+// Render the template with the context
+Timber::render($templates, $context);

@@ -1,8 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./**/*.php","./src/**/*.js","./template-parts/"],
+  content: ["./**/*.php","./src/**/*.js",'./template-parts/**/*.twig',"./views/**/*.twig"],
+  
   theme: {
-    extend: {},
+    container: {
+      center: true,
+      padding: '2rem'
+    },
+    extend: {
+      
+    },
   },
   plugins: [],
 }
