@@ -1,14 +1,16 @@
 <?php
 // Include the WordPress environment
 if (!defined('ABSPATH')) {
-    exit; // Exit if accessed directly
+  exit; // Exit if accessed directly
 }
 
 // Load Timber and get the global context
 $context = Timber::get_context();
 
 // Fetch the menu and pass it to the context
-$context['menu'] = new Timber\Menu('headerMenuLocation');
+$context['header_menu'] = new Timber\Menu('headerMenuLocation');
+$context['footer_menu_one'] = new Timber\Menu('footerLocationOne');
+$context['footer_menu_two'] = new Timber\Menu('footerLocationTwo');
 
 
 
