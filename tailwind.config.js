@@ -15,6 +15,8 @@ module.exports = {
         'warmPeach': '#FCE4D6',   // Warm peach tone
         'softGray': '#E8E9EB',    // Soft, neutral gray
         'deepTeal': '#4C7977',    // Deep, calming teal
+        'softPink': '#eee1ea',    // soft pink
+        'darkPink': '#c08b9d',    // dark pink
       },
         fontFamily: {
         poppins: ['Poppins', 'sans-serif'], // Add Poppins font here

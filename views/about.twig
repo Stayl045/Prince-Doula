@@ -1,43 +1,64 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<article
-		id="about-page"
-		class="about-page">
-		{% include 'template-parts/hero.twig' with {
-    title: 'Welcome to Prince Doula',
-    description: 'Empowering your journey with expert care and support.',
-    button_text: 'Learn More',
-    button_url: '/about',
-    background_image: background_image 
-} %}
+<article
+	{% include 'template-parts/hero.twig' with { title: 'Welcome to Prince Doula', description: 'Empowering your journey with expert care and support.', button_text: 'Learn More', button_url: '/about', background_image: background_image } %}
 
-		<header
-			class="about-header">
-			<h1>
-				About Us
-			</h1>
-		</header>
-
-
-	</div>
-	<div
-		class="about-content">
-		<p>
-			Welcome to our website! We are committed to providing the best services to our clients.
-		</p>
-		<p>
-			Our team consists of experienced professionals dedicated to achieving excellence in every project.
-		</p>
-		<p>
-			We believe in building strong relationships with our clients and understanding their unique needs.
-		</p>
-		<p>
-			Thank you for visiting us, and we look forward to working with you!
-		</p>
-	</div>
-	<div
-		class="content">
-		{{ post.content|raw }}
-	</article>
-{% endblock %}
+	<header class="about-header"> <h1> about
+	us
+	</h1> </header> </div> <div class="about-content"> <p> welcome
+	to
+	our
+	website!
+	we
+	are
+	committed
+	to
+	providing
+	the
+	best
+	services
+	to
+	our
+	clients.
+	</p> <p> our
+	team
+	consists
+	of
+	experienced
+	professionals
+	dedicated
+	to
+	achieving
+	excellence
+	in
+	every
+	project.
+	</p> <p> we
+	believe
+	in
+	building
+	strong
+	relationships
+	with
+	our
+	clients
+	and
+	understanding
+	their
+	unique
+	needs.
+	</p> <p> thank
+	you
+	for
+	visiting
+	us,
+	and
+	we
+	look
+	forward
+	to
+	working
+	with
+	you!
+	</p> </div> <div class="content"> {{ post.content|raw }} </article> {% endblock %}

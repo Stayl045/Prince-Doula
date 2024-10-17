@@ -21,6 +21,19 @@ if ($background_image) {
   $context['background_image'] = get_template_directory_uri() . '/assets/images/default-hero.jpg';
 }
 
+// main-hero
+if (function_exists('get_field')) {
+  $context['title'] = get_field('hero_title') ?: get_the_title();
+  $context['description'] = get_field('hero_description');
+  $context['button_text'] = get_field('hero_button_text');
+  $context['button_url'] = get_field('hero_button_url');
+  
+  $hero_image = get_field('hero_image');
+  if ($hero_image) {
+    $context['hero_image'] = $hero_image['url'];
+  }
+}
+
 
 
 if (is_front_page()) {
