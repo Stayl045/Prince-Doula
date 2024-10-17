@@ -6,7 +6,7 @@
 
 function prince_doula_assets()
 {
-  wp_enqueue_style('tailwind-css', get_template_directory_uri() . '/src/output.css');
+  wp_enqueue_style('output', get_template_directory_uri() . '/src/output.css');
 }
 
 add_action('wp_enqueue_scripts', 'prince_doula_assets');

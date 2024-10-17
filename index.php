@@ -6,6 +6,7 @@ if (!defined('ABSPATH')) {
 
 // Load Timber and get the global context
 $context = Timber::get_context();
+$context['home_url'] = home_url();
 
 // Fetch the menu and pass it to the context
 $context['header_menu'] = new Timber\Menu('headerMenuLocation');

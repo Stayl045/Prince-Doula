@@ -1,20 +1,37 @@
 <!DOCTYPE html>
-<html lang="{{ language.attributes }}">
-<head>
-    <meta charset="{{ bloginfo('charset') }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ theme.uri }}/style.css"> <!-- Adjust if necessary -->
-    {{ wp_head() }}
-</head>
-<body class="{{ body_class|join(' ') }}"> <!-- Use the body_class variable -->
-    {% include 'views/header.twig' %} <!-- Include header.twig -->
+<html
+	lang="{{ language.attributes }}">
+	<head>
+		<meta
+			charset="{{ bloginfo('charset') }}">
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0">
+		<link
+		rel="stylesheet"
+			href="{{ theme.uri }}/style.css">
+		<!-- Adjust if necessary -->
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+			rel="stylesheet">
 
-    <main>
-        {% block content %}{% endblock %} <!-- Placeholder for page-specific content -->
-    </main>
+		{{ wp_head() }}
+	</head>
+	<body
+		class="{{ body_class|join(' ') }}">
+		<!-- Use the body_class variable -->
+		{% include 'views/header.twig' %}
+		<!-- Include header.twig -->
 
-    {% include 'views/footer.twig' %} <!-- Include footer.twig -->
+		<main>
+			{% block content %}
+			{% endblock %}
+			<!-- Placeholder for page-specific content -->
+		</main>
 
-    {{ wp_footer() }}
-</body>
+		{% include 'views/footer.twig' %}
+		<!-- Include footer.twig -->
+
+		{{ wp_footer() }}
+	</body>
 </html>
