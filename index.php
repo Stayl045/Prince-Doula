@@ -1,12 +1,9 @@
 <?php
-// Include the WordPress environment
-if (!defined('ABSPATH')) {
-  exit; // Exit if accessed directly
-}
-
 // Load Timber and get the global context
 $context = Timber::get_context();
 $context['home_url'] = home_url();
+
+// Get posts, optionally specify query arguments.
 
 // Fetch the menu and pass it to the context
 $context['header_menu'] = new Timber\Menu('headerMenuLocation');
@@ -14,6 +11,15 @@ $context['footer_menu_one'] = new Timber\Menu('footerLocationOne');
 $context['footer_menu_two'] = new Timber\Menu('footerLocationTwo');
 
 
+// Get the background image from ACF
+$background_image = get_field('background_image');
+
+if ($background_image) {
+  $context['background_image'] = $background_image['url']; // Get the URL of the image
+} else {
+  // Set a default background image if no custom field is provided
+  $context['background_image'] = get_template_directory_uri() . '/assets/images/default-hero.jpg';
+}
 
 
 
@@ -40,11 +46,6 @@ if (is_front_page()) {
 }
 
 
-// Fetch posts using Timber\PostQuery and pass them to the context
-// $context['posts'] = new Timber\PostQuery(array(
-//     'post_type' => 'post',    
-//     'posts_per_page' => 10,   
-// ));
 
 // Render the template with the context
 Timber::render($templates, $context);
